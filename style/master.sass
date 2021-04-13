@@ -1,0 +1,142 @@
+@import "https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Share+Tech+Mono&display=swap"
+
+
+// colors by shade //
+
+$eggwhite: #f4f1de
+$tomato: #e07a5f
+$universe: #3d405b
+$emerald: #81b29a
+$vanilla: #f2cc8f
+$forest: #387c6d
+
+// colors by usage //
+
+$background: #f4f1de
+$mainAccent: $forest
+$accentWeak: #000
+$accentStrong: #000
+$mainText: #000
+$moreText: #000
+$lessText: #000
+
+// other //
+$imgSize: 8em
+$layout-breakpoint-small: 1200px
+
+*
+	margin: 0
+
+body
+	height: 100%
+	background: #222
+	color: $mainAccent
+	font-family: 'Open Sans'
+	@media (min-width: $layout-breakpoint-small)
+		height: 100vh
+		max-width: 100vw
+		display: grid
+		grid-template-columns: [salute] 3fr [present] 7fr
+		grid-template-rows: repeat(5, auto)
+		font-size: 1.2em
+		h1
+			font-size: 2em
+		section#salute
+			grid-column: salute
+			grid-row: 1/3
+			& > h1
+				padding-bottom: .5em
+			& > a:first-of-type
+				padding-top: .3em
+				padding-left: 1em
+			& > a:last-of-type
+				padding-bottom: .5em
+				padding-left: 1em
+		section#present
+			grid-column: present
+			grid-row: 1/6
+			display: grid
+			grid-template-columns: repeat(3, minmax(0, 1fr))
+			grid-template-rows: repeat(3, minmax(0, 1fr))
+			grid-content: center
+			place-items: stretch
+			// article#first
+			// 	grid-row: 1/1
+			// 	grid-column: 1/1
+			// 	background: orangered
+			//
+			article#second
+				grid-row: 1/1
+				grid-column: 2/2
+				align-self: end
+				color: #333
+				font-size: .85em
+			// article#third
+			// 	grid-row: 1/1
+			// 	grid-column: 3/3
+			// 	background: yellow
+			// article#fourth
+			// 	grid-row: 2/2
+			// 	grid-column: 1/1
+			// 	background: blue
+			article#fifth
+				grid-row: 2/2
+				grid-column: 2/2
+				background: #333
+				box-shadow: 10px 10px $vanilla
+				color: white
+				p:first-child
+					text-align: center
+				&:hover
+					box-shadow: 10px 10px $tomato
+				p:nth-child(2)
+					padding: 2em
+					span
+						color: grey
+						font-style: italic
+			// article#sixth
+			// 	grid-row: 2/2
+			// 	grid-column: 3/3
+			// 	background: purple
+			// article#seventh
+			// 	grid-row: 3/3
+			// 	grid-column: 1/1
+			// 	background: orangered
+			// article#eigth
+			// 	grid-row: 3/3
+			// 	grid-column: 2/2
+			// 	background: white
+			// article#ninth
+			// 	grid-row: 3/3
+			// 	grid-column: 3/3
+			// 	background: yellow
+
+section#present
+	display: none
+	background: $eggwhite
+
+section#salute
+	padding-top: 20vh
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	font-family: 'Share Tech Mono', monospace
+	color: #222
+	text-shadow: 4px 2px $vanilla
+
+	& > img
+		width: $imgSize
+		height: $imgSize
+		border-radius: 50%
+		margin: $imgSize / 8
+		border: solid .5em $vanilla
+		//animation: spinning 5s linear infinite
+
+	& > a
+		padding: 0 1.4em
+		color: $mainAccent
+		background: $mainAccent
+
+.gamebox
+	display: none
