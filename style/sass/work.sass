@@ -1,0 +1,66 @@
+@import "https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Share+Tech+Mono&display=swap"
+
+
+// colors by shade //
+
+$eggwhite: #f4f1de
+$tomato: #e07a5f
+$universe: #3d405b
+$emerald: #81b29a
+$vanilla: #f2cc8f
+$forest: #387c6d
+
+// other //
+$imgSize: 8em
+$layout-breakpoint-small: 1200px
+
+*
+	padding: 0
+	margin: 0
+
+html
+	height: 100%
+	width: 100%
+
+
+
+body
+	height: 100%
+	width: 100%
+	background: #222
+	color: $eggwhite
+	font-family: 'Open Sans'
+
+
+	#art
+		margin: 0
+		padding: 0
+		display: flex
+		flex-direction: row
+		justify-content: center
+		div
+			animation: enter-art ease 3s
+			animation-iteration-count: 1
+			height: 100vh
+			width: 50vw
+		.arch-main
+			background: url("../img/a-00.jpg") fixed
+			background-size: cover
+		.arch-study
+			background: url("../img/a-01.jpg") fixed rgba(0,0,0,0.5)
+			background-size: cover
+			background-blend-mode: multiply
+
+
+@keyframes enter-art
+	0%
+		width: 10vw
+	100%
+		width: 50vw
+
+@media only screen and (min-width: 700px)
+	body
+		display: grid
+		grid-template-columns: repeat(3, auto)
+		grid-template-rows: repeat(3, auto)
+		
