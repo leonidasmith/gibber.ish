@@ -1,5 +1,5 @@
 @import "https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Share+Tech+Mono&display=swap";
-* {
+*, section {
   padding: 0;
   margin: 0;
 }
@@ -12,29 +12,33 @@ html {
 body {
   height: 100%;
   width: 100%;
-  background: #222;
+  background: #111;
   color: #f4f1de;
   font-family: "Open Sans";
 }
-body #art {
+body .desktop {
+  display: none;
+}
+body #mobile {
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
-body #art div {
+body #mobile div {
   animation: enter-art ease 3s;
   animation-iteration-count: 1;
   height: 100vh;
   width: 50vw;
 }
-body #art .arch-main {
+body #mobile .arch-main {
   background: url("../img/a-00.jpg") fixed;
   background-size: cover;
 }
-body #art .arch-study {
-  background: url("../img/a-01.jpg") fixed rgba(0, 0, 0, 0.5);
+body #mobile .arch-study {
+  background: rgba(0, 0, 0, 0.5) url("../img/a-01.jpg") fixed;
   background-size: cover;
   background-blend-mode: multiply;
 }
@@ -48,10 +52,45 @@ body #art .arch-study {
   }
 }
 @media only screen and (min-width: 700px) {
-  body {
+  body #mobile {
+    display: none;
+  }
+  body .desktop {
+    display: block;
+    max-width: 1600px;
+    padding: 50px 20px;
+    margin: 0 auto;
+  }
+  body .desktop #gallery {
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    grid-gap: 20px;
+  }
+  body .desktop #gallery .galleryImg {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    transition: transform 250ms;
+    cursor: pointer;
+  }
+  body .desktop #gallery .galleryImg:hover {
+    transform: translateY(-2px);
+  }
+  body #popup {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform 250ms;
+    padding: 50px;
+  }
+  body #popup #selectedImage {
+    max-height: 100%;
   }
 }
 
