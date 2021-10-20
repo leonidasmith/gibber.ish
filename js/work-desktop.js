@@ -25,7 +25,7 @@ imageIndexes.forEach((i) => {
 });
 
 popup.addEventListener('click', () => {
-  popup.style.transform = `translateY(-100%)`
+  popup.style.transform = `translateY(-100%)`;
   popup.src = '';
   popup.alt = '';
 })

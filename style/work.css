@@ -3,6 +3,10 @@
   padding: 0;
   margin: 0;
 }
+* a, section a {
+  text-decoration: none;
+  color: inherit;
+}
 
 html {
   height: 100%;
@@ -15,6 +19,23 @@ body {
   background: #111;
   color: #f4f1de;
   font-family: "Open Sans";
+}
+body nav {
+  width: 100%;
+  padding: 20px;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+}
+body nav a {
+  font-family: "Share Tech Mono", monospace;
+  color: black;
+  font-size: 3em;
+  box-shadow: 5px 4px #f2cc8f;
+  text-shadow: 2px 2px #f2cc8f;
+}
+body nav a:hover {
+  text-shadow: 2px 2px #e07a5f;
 }
 body .desktop {
   display: none;
@@ -52,23 +73,41 @@ body #mobile .arch-study {
   }
 }
 @media all and (min-width: 700px) {
+  body nav {
+    position: static;
+    display: flex;
+    justify-content: flex-start;
+  }
+  body nav a {
+    font-family: "Share Tech Mono", monospace;
+    color: black;
+    font-size: 2em;
+    box-shadow: none;
+    text-shadow: 2px 2px #f2cc8f;
+    margin-left: 20px;
+  }
+  body nav a:hover {
+    text-shadow: 2px 2px #e07a5f;
+  }
   body #mobile {
     display: none;
   }
   body .desktop {
-    display: block;
-    max-width: 1600px;
-    padding: 50px 20px;
-    margin: 0 auto;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   body .desktop #gallery {
     display: grid;
-    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
     grid-gap: 20px;
   }
   body .desktop #gallery .galleryImg {
+    object-fit: cover;
     width: 100%;
-    max-width: 100%;
+    height: 100%;
     position: relative;
     transition: transform 250ms;
     cursor: pointer;
@@ -76,7 +115,8 @@ body #mobile .arch-study {
   body .desktop #gallery .galleryImg:hover {
     transform: translateY(-2px);
   }
-  body #popup {
+  body .desktop #popup {
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -89,7 +129,7 @@ body #mobile .arch-study {
     transition: transform 250ms;
     padding: 50px;
   }
-  body #popup #selectedImage {
+  body .desktop #popup #selectedImage {
     max-height: 100%;
   }
 }

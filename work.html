@@ -9,6 +9,11 @@
 
 <body>
 
+  <nav>
+    <a href="index.html">>home</a>
+    <a href="doxa.html">>doxa</a>
+  </nav>
+
   <div id="mobile">
     <!-- work of the arch -->
     <div class="arch-main"></div>
@@ -17,16 +22,24 @@
   </div>
 
   <div class="desktop">
-    <h1>Gallery in progress</h1>
-    <div id="gallery">
 
+    <div id="gallery">
+    </div>
+    <div id="popup">
+      <img src="" alt="" id="selectedImage">
     </div>
   </div>
-  <div id="popup">
-    <img src="" alt="" id="selectedImage">
-  </div>
 
-<script src="js/gallery.js"></script>
+
+<script>
+  if (screen.width >= 700)
+  {
+    var head = document.getElementsByTagName('head')[0];
+    var js = document.createElement("script");
+    js.src = "js/work-desktop.js";
+  }
+  head.appendChild(js);
+</script>
 </body>
 
 </html>

@@ -17,9 +17,6 @@ $layout-breakpoint-small: 1200px
 *, section
 	padding: 0
 	margin: 0
-	a
-		text-decoration: none
-		color: inherit
 
 html
 	height: 100%
@@ -33,21 +30,6 @@ body
 	background: #111
 	color: $eggwhite
 	font-family: 'Open Sans'
-
-	nav
-		width: 100%
-		padding: 20px
-		position: fixed
-		display: flex
-		justify-content: space-around
-		a
-			font-family: 'Share Tech Mono', monospace
-			color: black
-			font-size: 3em
-			box-shadow: 5px 4px $vanilla
-			text-shadow: 2px 2px $vanilla
-			&:hover
-				text-shadow: 2px 2px $tomato
 
 	.desktop
 		display: none
@@ -80,57 +62,41 @@ body
 		width: 50vw
 
 @media all and (min-width: 700px)
-@media all and (min-width: 700px)
 	body
-		nav
-			// width: 100%
-			// padding: 20px
-			position: static
-			display: flex
-			justify-content: flex-start
-			a
-				font-family: 'Share Tech Mono', monospace
-				color: black
-				font-size: 2em
-				box-shadow: none
-				text-shadow: 2px 2px $vanilla
-				margin-left: 20px
-				&:hover
-					text-shadow: 2px 2px $tomato
 		#mobile
 			display: none
 		.desktop
-			margin: 20px
-			display: flex
-			align-items: center
-			justify-content: center
+			display: block
+			max-width: 1600px
+			height: 100vh
+			padding: 50px 20px
+			margin: 0 auto
 			#gallery
 				display: grid
-				grid-template-columns: repeat(auto-fit, minmax(320px,1fr))
-				justify-content: center
+				grid-template-columns: repeat(auto-fit, minmax(320px,.5fr))
 				grid-gap: 20px
 				.galleryImg
-					object-fit: cover
 					width: 100%
-					height: 100%
+					max-width: 100%
 					position: relative
+
 					transition: transform 250ms
 					cursor: pointer
 					&:hover
 						transform: translateY(-2px)
 						// box-shadow: .25em .25em 0 $vanilla
-			#popup
-				position: fixed
-				top: 0
-				bottom: 0
-				left: 0
-				right: 0
-				background-color: rgba(0,0,0,0.95)
-				display: flex
-				justify-content: center
-				align-items: center
-				transform: translateY(-100%)
-				transition: transform 250ms
-				padding: 50px
-				#selectedImage
-					max-height: 100%
+		#popup
+			//position: fixed
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			background-color: rgba(0,0,0,0.95)
+			display: flex
+			justify-content: center
+			align-items: center
+			transform: translateY(-100%)
+			transition: transform 250ms
+			padding: 50px
+			#selectedImage
+				max-height: 100%
