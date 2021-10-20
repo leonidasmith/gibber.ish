@@ -132,22 +132,20 @@ body #mobile .arch-study {
   }
   body .desktop #gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
-    grid-gap: 30px;
   }
   body .desktop #gallery .galleryImg {
     object-fit: cover;
+    image-rendering: optimizespeed;
     width: 100%;
     height: 100%;
     position: relative;
     transition: transform 250ms;
     cursor: pointer;
-    box-shadow: 0.6em 0.6em 0 #3d405b;
   }
   body .desktop #gallery .galleryImg:hover {
     transform: translateY(-2px);
-    box-shadow: 0.65em 0.65em 0 #3d405b;
     transition: transform;
   }
   body .desktop #popup {
