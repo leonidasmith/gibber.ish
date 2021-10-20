@@ -20,24 +20,6 @@ body {
   color: #f4f1de;
   font-family: "Open Sans";
 }
-body nav {
-  width: 100%;
-  position: fixed;
-  display: flex;
-  justify-content: space-around;
-}
-body nav a {
-  margin-top: 50px;
-  padding: 3px;
-  font-family: "Share Tech Mono", monospace;
-  color: black;
-  font-size: 2em;
-  box-shadow: 5px 4px #f2cc8f;
-  text-shadow: 2px 2px #f2cc8f;
-}
-body nav a:hover {
-  text-shadow: 2px 2px #e07a5f;
-}
 body .desktop {
   display: none;
 }
@@ -50,7 +32,7 @@ body #mobile {
   align-items: center;
 }
 body #mobile div {
-  animation: enter-art ease 3s;
+  animation: enter-art ease 1s;
   animation-iteration-count: 1;
   height: 100vh;
   width: 50vw;
@@ -73,98 +55,85 @@ body #mobile .arch-study {
     width: 50vw;
   }
 }
-@media screen and (min-width: 700px) {
-  body nav {
-    position: static;
-    display: flex;
-    justify-content: flex-start;
-  }
-  body nav a {
-    font-family: "Share Tech Mono", monospace;
-    color: black;
-    font-size: 2em;
-    box-shadow: none;
-    text-shadow: 2px 2px #f2cc8f;
-    margin-left: 20px;
-  }
-  body nav a:hover {
-    text-shadow: 2px 2px #e07a5f;
-  }
-  body #mobile {
-    display: none;
-  }
-  body .desktop {
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  body .desktop #gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    justify-content: center;
-    grid-gap: 20px;
-  }
-  body .desktop #gallery .galleryImg {
-    object-fit: cover;
-    width: 100%;
+@media all and (max-width: 700px) {
+  nav .links {
+    width: 50%;
     height: 100%;
-    position: relative;
-    transition: transform 250ms;
-    cursor: pointer;
-  }
-  body .desktop #gallery .galleryImg:hover {
-    transform: translateY(-2px);
-  }
-  body .desktop #popup {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.95);
+    background: #81b29a;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translateY(-100%);
-    transition: transform 250ms;
-    padding: 50px;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 2em;
+    position: fixed;
+    transform: translateX(-100%);
   }
-  body .desktop #popup #selectedImage {
-    max-height: 100%;
+  nav .links a {
+    color: #e07a5f;
+    text-shadow: 2px 2px #f2cc8f;
+    margin: 20px 0;
+  }
+  nav i {
+    color: #111;
+    font-size: 2em;
+    padding: 1em;
+    position: fixed;
+  }
+  nav i:active {
+    transform: translateX(60vw);
+    transition: transform 250ms;
+    color: #e07a5f;
+    text-shadow: 2px 2px #f2cc8f;
+  }
+  nav i:active + .links {
+    transform: translateX(0);
+    transition: transform 250ms;
   }
 }
 @media all and (min-width: 700px) {
   body nav {
-    position: static;
+    position: absolute;
     display: flex;
-    justify-content: flex-start;
-  }
-  body nav a {
-    font-family: "Share Tech Mono", monospace;
-    color: black;
+    justify-content: space-between;
+    padding: 10px 0;
+    width: 100%;
+    background: #f4f1de;
+    color: #f4f1de;
     font-size: 2em;
-    box-shadow: none;
-    text-shadow: 2px 2px #f2cc8f;
-    margin-left: 20px;
+    text-shadow: 2px 2px #3d405b;
   }
-  body nav a:hover {
-    text-shadow: 2px 2px #e07a5f;
+  body nav .fa-map-signs {
+    padding-left: 10em;
+  }
+  body nav .fa-map-signs:hover {
+    color: #f2cc8f;
+  }
+  body nav .links {
+    padding-right: 10em;
+  }
+  body nav .links a {
+    font-family: "Share Tech Mono", monospace;
+  }
+  body nav .links a:hover {
+    text-shadow: 2px 2px #3d405b;
+    color: #f2cc8f;
   }
   body #mobile {
     display: none;
   }
   body .desktop {
-    margin: 20px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #81b29a;
   }
   body .desktop #gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     justify-content: center;
-    grid-gap: 20px;
+    grid-gap: 30px;
   }
   body .desktop #gallery .galleryImg {
     object-fit: cover;
@@ -173,9 +142,12 @@ body #mobile .arch-study {
     position: relative;
     transition: transform 250ms;
     cursor: pointer;
+    box-shadow: 0.6em 0.6em 0 #3d405b;
   }
   body .desktop #gallery .galleryImg:hover {
     transform: translateY(-2px);
+    box-shadow: 0.65em 0.65em 0 #3d405b;
+    transition: transform;
   }
   body .desktop #popup {
     position: fixed;
@@ -183,7 +155,7 @@ body #mobile .arch-study {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: #f4f1de;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,6 +165,7 @@ body #mobile .arch-study {
   }
   body .desktop #popup #selectedImage {
     max-height: 100%;
+    border: 2em solid #222;
   }
 }
 
