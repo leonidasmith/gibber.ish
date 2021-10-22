@@ -16,6 +16,9 @@ html ul, body ul {
   padding-left: 0;
   margin: 0;
 }
+html nav input, body nav input {
+  display: none;
+}
 
 @media all and (max-width: 879px) {
   body nav {
@@ -51,7 +54,7 @@ html ul, body ul {
   }
   body nav ul li > * {
     color: white;
-    font-size: 48px;
+    font-size: 32px;
   }
   body nav ul span.b {
     display: none;
@@ -72,8 +75,11 @@ html ul, body ul {
     transform: translateX(-100%);
     transition: transform 250ms;
   }
+  body main {
+    /* This is an interesting idea. */
+  }
   body main #mobile {
-    background: url("../img/map-mobile.jpg") center center/cover;
+    background: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -88,28 +94,19 @@ html ul, body ul {
   body main #mobile .arch-main {
     background: url("../img/a-00.jpg") fixed;
     background-size: cover;
+    image-resolution: optimizespeed;
   }
   body main #mobile .arch-study {
     background: rgba(0, 0, 0, 0.5) url("../img/a-01.jpg") fixed;
     background-size: cover;
     background-blend-mode: overlay;
+    image-resolution: optimizespeed;
   }
   body main #gallery {
     display: none;
   }
   body main #popup {
     display: none;
-  }
-  body main h1 {
-    font-size: 150px;
-    color: salmon;
-    text-shadow: 3px 3px #8FAF6B;
-    font-family: "Roboto Mono";
-    font-weight: bolder;
-    word-break: break-all;
-    mix-blend-mode: hard-light;
-    position: absolute;
-    z-index: 5;
   }
 }
 @media all and (min-width: 879px) {
@@ -118,7 +115,7 @@ html ul, body ul {
     left: calc(50% - 136.8px);
     top: 40px;
   }
-  body nav .fa-ellipsis-h {
+  body nav input, body nav label {
     display: none;
   }
   body nav ul {
@@ -180,6 +177,7 @@ html ul, body ul {
   }
   body main #popup #selectedImage {
     max-height: 100%;
+    margin-bottom: 50px;
   }
 }
 @keyframes enter-art {

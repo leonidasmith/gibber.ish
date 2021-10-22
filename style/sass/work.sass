@@ -14,6 +14,9 @@ html, body
 	ul
 		padding-left: 0
 		margin: 0
+	nav
+		input
+			display: none
 
 
 
@@ -48,7 +51,7 @@ html, body
 					padding: 20px
 				li > *
 					color: white
-					font-size: 48px
+					font-size: 32px
 				span.b
 					display: none
 			#target:checked
@@ -67,7 +70,7 @@ html, body
 					transition: transform 250ms
 		main
 			#mobile
-				background: url('../img/map-mobile.jpg') center center / cover
+				background: white
 				display: flex
 				flex-direction: row
 				justify-content: center
@@ -80,24 +83,29 @@ html, body
 				.arch-main
 					background: url("../img/a-00.jpg") fixed
 					background-size: cover
+					image-resolution: optimizespeed
 				.arch-study
 					background: rgba(0,0,0,0.5) url("../img/a-01.jpg") fixed
 					background-size: cover
 					background-blend-mode: overlay
+					image-resolution: optimizespeed
 			#gallery
 				display: none
 			#popup
 				display: none
-			h1
-				font-size: 150px
-				color: salmon
-				text-shadow: 3px 3px $leaf
-				font-family: 'Roboto Mono'
-				font-weight: bolder
-				word-break: break-all
-				mix-blend-mode: hard-light
-				position: absolute
-				z-index: 5
+
+			/* This is an interesting idea. */
+			// h1
+			// 	font-size: 120px
+			// 	padding: auto 0
+			// 	color: salmon
+			// 	text-shadow: 3px 3px $leaf
+			// 	font-family: 'Roboto Mono'
+			// 	font-weight: bolder
+			// 	word-break: break-all
+			// 	mix-blend-mode: hard-light
+			// 	position: absolute
+			// 	z-index: 5
 
 
 
@@ -109,7 +117,7 @@ html, body
 			position: absolute
 			left: calc(50% - 273.6px / 2)
 			top: 40px
-			.fa-ellipsis-h
+			input, label
 				display: none
 			ul
 				display: inline
@@ -136,6 +144,7 @@ html, body
 					grid-template-columns: repeat(auto-fit, minmax(320px,1fr))
 					grid-gap: 20px
 					.galleryImg
+
 						width: 100%
 						height: 100%
 						object-fit: cover
@@ -160,6 +169,7 @@ html, body
 					justify-content: center
 					#selectedImage
 						max-height: 100%
+						margin-bottom: 50px
 
 
 

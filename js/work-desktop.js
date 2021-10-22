@@ -16,7 +16,7 @@ imageIndexes.forEach((i) => {
   image.addEventListener('click', () =>{
     popup.style.position = 'fixed';
     popup.style.transform = `translateY(0)`
-    selectedImage.src = `img/art/${i}.jpg`;
+    selectedImage.src = `img/art/tiny/${i}.jpg`;
   });
 
   gallery.appendChild(image);
