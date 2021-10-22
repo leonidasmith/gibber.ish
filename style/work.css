@@ -1,170 +1,193 @@
-@import "https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Share+Tech+Mono&display=swap";
-*, section {
-  padding: 0;
+html, body {
+  width: 100%;
+  height: 100%;
   margin: 0;
 }
-* a, section a {
+html a, body a {
   text-decoration: none;
-  color: inherit;
+  color: #8FAF6B;
 }
-
-html {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  height: 100%;
-  width: 100%;
-  background: #111;
-  color: #f4f1de;
-  font-family: "Open Sans";
-}
-body .desktop {
-  display: none;
-}
-body #mobile {
+html li, body li {
+  list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
-body #mobile div {
-  animation: enter-art ease 1s;
-  animation-iteration-count: 1;
-  height: 100vh;
-  width: 50vw;
-}
-body #mobile .arch-main {
-  background: url("../img/a-00.jpg") fixed;
-  background-size: cover;
-}
-body #mobile .arch-study {
-  background: rgba(0, 0, 0, 0.5) url("../img/a-01.jpg") fixed;
-  background-size: cover;
-  background-blend-mode: multiply;
+html ul, body ul {
+  padding-left: 0;
+  margin: 0;
 }
 
+@media all and (max-width: 879px) {
+  body nav {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+  }
+  body nav input {
+    display: none;
+  }
+  body nav label {
+    height: 0;
+  }
+  body nav label .fa-ellipsis-h {
+    z-index: 20;
+    font-size: 2.5em;
+    padding: 30px;
+    position: fixed;
+  }
+  body nav ul {
+    position: relative;
+    transform: translateX(-100%);
+    height: 100%;
+    width: 60%;
+    background: salmon;
+  }
+  body nav ul :first-child {
+    padding-top: 200px;
+  }
+  body nav ul li {
+    padding: 20px;
+  }
+  body nav ul li > * {
+    color: white;
+    font-size: 48px;
+  }
+  body nav ul span.b {
+    display: none;
+  }
+  body nav #target:checked + label > i {
+    transform: rotate(90deg);
+    transition: transform 250ms;
+  }
+  body nav #target:checked ~ ul {
+    transform: translateX(0);
+    transition: transform 250ms;
+  }
+  body nav #target:not(:checked) + label > i {
+    transform: rotate(0deg);
+    transition: transform 250ms;
+  }
+  body nav #target:not(:checked) ~ ul {
+    transform: translateX(-100%);
+    transition: transform 250ms;
+  }
+  body main #mobile {
+    background: url("../img/map-mobile.jpg") center center/cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  body main #mobile div {
+    animation: enter-art ease 1s;
+    animation-iteration-count: 1;
+    height: 100vh;
+    width: 50vw;
+  }
+  body main #mobile .arch-main {
+    background: url("../img/a-00.jpg") fixed;
+    background-size: cover;
+  }
+  body main #mobile .arch-study {
+    background: rgba(0, 0, 0, 0.5) url("../img/a-01.jpg") fixed;
+    background-size: cover;
+    background-blend-mode: overlay;
+  }
+  body main #gallery {
+    display: none;
+  }
+  body main #popup {
+    display: none;
+  }
+  body main h1 {
+    font-size: 150px;
+    color: salmon;
+    text-shadow: 3px 3px #8FAF6B;
+    font-family: "Roboto Mono";
+    font-weight: bolder;
+    word-break: break-all;
+    mix-blend-mode: hard-light;
+    position: absolute;
+    z-index: 5;
+  }
+}
+@media all and (min-width: 879px) {
+  body nav {
+    position: absolute;
+    left: calc(50% - 136.8px);
+    top: 40px;
+  }
+  body nav .fa-ellipsis-h {
+    display: none;
+  }
+  body nav ul {
+    display: inline;
+    font-family: "Roboto Mono";
+    font-size: 24px;
+    color: #8FAF6B;
+  }
+  body nav ul li {
+    display: inline;
+  }
+  body nav ul span.a {
+    display: none;
+  }
+  body nav ul a:hover {
+    color: salmon;
+  }
+  body main {
+    width: calc(100% - 120px);
+    height: calc(100% - 200px);
+    transform: translateY(200px);
+    margin: 0 60px;
+  }
+  body main #mobile {
+    display: none;
+  }
+  body main #gallery {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+  }
+  body main #gallery .galleryImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: optimizespeed;
+    position: relative;
+    transition: transform 250ms;
+    cursor: pointer;
+  }
+  body main #gallery .galleryImg:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 10px #ddd;
+    transition: transform;
+  }
+  body main #popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    transform: translateY(-200%);
+    transition: transform 250ms;
+    display: flex;
+    justify-content: center;
+  }
+  body main #popup #selectedImage {
+    max-height: 100%;
+  }
+}
 @keyframes enter-art {
   0% {
     width: 10vw;
   }
   100% {
     width: 50vw;
-  }
-}
-@media all and (max-width: 700px) {
-  nav .links {
-    width: 50%;
-    height: 100%;
-    background: #81b29a;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: "Share Tech Mono", monospace;
-    font-size: 2em;
-    position: fixed;
-    transform: translateX(-100%);
-  }
-  nav .links a {
-    color: #e07a5f;
-    text-shadow: 2px 2px #f2cc8f;
-    margin: 20px 0;
-  }
-  nav i {
-    color: #111;
-    font-size: 2em;
-    padding: 1em;
-    position: fixed;
-  }
-  nav i:active {
-    transform: translateX(60vw);
-    transition: transform 250ms;
-    color: #e07a5f;
-    text-shadow: 2px 2px #f2cc8f;
-  }
-  nav i:active + .links {
-    transform: translateX(0);
-    transition: transform 250ms;
-  }
-}
-@media all and (min-width: 700px) {
-  body nav {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    width: 100%;
-    background: #f4f1de;
-    color: #f4f1de;
-    font-size: 2em;
-    text-shadow: 2px 2px #3d405b;
-    box-shadow: 1px 0 20px #28282808;
-  }
-  body nav .fa-map-signs {
-    padding-left: 10em;
-  }
-  body nav .fa-map-signs:hover {
-    color: #f2cc8f;
-  }
-  body nav .links {
-    padding-right: 10em;
-  }
-  body nav .links a {
-    font-family: "Share Tech Mono", monospace;
-  }
-  body nav .links a:hover {
-    text-shadow: 2px 2px #3d405b;
-    color: #f2cc8f;
-  }
-  body #mobile {
-    display: none;
-  }
-  body .desktop {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #81b29a;
-  }
-  body .desktop #gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    justify-content: center;
-  }
-  body .desktop #gallery .galleryImg {
-    object-fit: cover;
-    image-rendering: optimizespeed;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 250ms;
-    cursor: pointer;
-  }
-  body .desktop #gallery .galleryImg:hover {
-    transform: translateY(-2px);
-    transition: transform;
-  }
-  body .desktop #popup {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #f4f1de;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-100%);
-    transition: transform 250ms;
-    padding: 50px;
-  }
-  body .desktop #popup #selectedImage {
-    max-height: 100%;
-    border: 2em solid #222;
   }
 }
 

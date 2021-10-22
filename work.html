@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>work</title>
-  <link rel="stylesheet" href="style/work.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gibber.ish</title>
+    <link rel="stylesheet" href="style/work.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,400;0,500;0,600;1,100;1,400;1,500;1,600&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
 </head>
 
-<body ontouchstart="">
+<body>
+
 
   <nav>
-
-    <i class="fas fa-map-signs"></i>
-    <div class="links">
-      <a href="index.html">>home</a>
-      <a href="doxa.html">>doxa</a>
-    </div>
-
+    <input type="checkbox" id="target">
+    <label for="target"><i class="fas fa-ellipsis-h"></i></label>
+    <ul>
+      <li><span class="a">>|</span> <a href="index.html">home</a> <span class="b">|</span></li>
+      <li><span class="a">>|</span> <a href="#">doxa</a> <span class="b">|</span></li>
+      <li><span class="a">>|</span><a href="#">cafe</a></li>
+    </ul>
   </nav>
 
-  <div id="mobile">
-    <!-- work of the arch -->
-    <div class="arch-main"></div>
-    <!-- study of the arch -->
-    <div class="arch-study"></div>
-  </div>
+  <main>
 
-  <div class="desktop">
+    <section id="mobile">
+      <h1>inconstruction</h1>
 
-    <div id="gallery">
-    </div>
-    <div id="popup">
+      <div class="arch-main">
+
+      </div>
+      <div class="arch-study">
+
+      </div>
+    </section>
+
+    <section id="gallery">
+    </section>
+    <section id="popup">
       <img src="" alt="" id="selectedImage">
-    </div>
-  </div>
-
+    </section>
+  </main>
 
 <script>
   if (screen.width >= 700)
@@ -48,5 +52,3 @@
   head.appendChild(js);
 </script>
 </body>
-
-</html>

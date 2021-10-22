@@ -1,171 +1,173 @@
-@import "https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Share+Tech+Mono&display=swap"
+$leaf: #8FAF6B
 
-
-// colors by shade //
-
-$eggwhite: #f4f1de
-$tomato: #e07a5f
-$universe: #3d405b
-$emerald: #81b29a
-$vanilla: #f2cc8f
-$forest: #387c6d
-
-// other //
-$imgSize: 8em
-$layout-breakpoint-small: 1200px
-
-*, section
-	padding: 0
+html, body
+	width: 100%
+	height: 100%
 	margin: 0
 	a
 		text-decoration: none
-		color: inherit
-
-html
-	height: 100%
-	width: 100%
-
-body
-	height: 100%
-	width: 100%
-	background: #111
-	color: $eggwhite
-	font-family: 'Open Sans'
-
-
-
-
-	.desktop
-		display: none
-
-	#mobile
+		color: $leaf
+	li
+		list-style: none
 		margin: 0
 		padding: 0
-		display: flex
-		flex-direction: row
-		justify-content: center
-		align-items: center
-		div
-			animation: enter-art ease 1s
-			animation-iteration-count: 1
-			height: 100vh
-			width: 50vw
-		.arch-main
-			background: url("../img/a-00.jpg") fixed
-			background-size: cover
-		.arch-study
-			background: rgba(0,0,0,0.5) url("../img/a-01.jpg") fixed
-			background-size: cover
-			background-blend-mode: multiply
+	ul
+		padding-left: 0
+		margin: 0
 
 
+
+
+
+// see the animation before accessing the gallery
+@media all and (max-width: 879px)
+	body
+		nav
+			position: absolute
+			height: 100%
+			width: 100%
+			z-index: 20
+			input
+				display: none
+			label
+				height: 0
+				.fa-ellipsis-h
+					z-index: 20
+					font-size: 2.5em
+					padding: 30px
+					position: fixed
+			ul
+				position: relative
+				transform: translateX(-100%)
+				height: 100%
+				width: 60%
+				background: salmon
+				& :first-child
+					padding-top: 200px
+				li
+					padding: 20px
+				li > *
+					color: white
+					font-size: 48px
+				span.b
+					display: none
+			#target:checked
+				+ label > i
+					transform: rotate(90deg)
+					transition: transform 250ms
+				~ ul
+					transform: translateX(0)
+					transition: transform 250ms
+			#target:not(:checked)
+				+ label > i
+					transform: rotate(0deg)
+					transition: transform 250ms
+				~ ul
+					transform: translateX(-100%)
+					transition: transform 250ms
+		main
+			#mobile
+				background: url('../img/map-mobile.jpg') center center / cover
+				display: flex
+				flex-direction: row
+				justify-content: center
+				align-items: center
+				div
+					animation: enter-art ease 1s
+					animation-iteration-count: 1
+					height: 100vh
+					width: 50vw
+				.arch-main
+					background: url("../img/a-00.jpg") fixed
+					background-size: cover
+				.arch-study
+					background: rgba(0,0,0,0.5) url("../img/a-01.jpg") fixed
+					background-size: cover
+					background-blend-mode: overlay
+			#gallery
+				display: none
+			#popup
+				display: none
+			h1
+				font-size: 150px
+				color: salmon
+				text-shadow: 3px 3px $leaf
+				font-family: 'Roboto Mono'
+				font-weight: bolder
+				word-break: break-all
+				mix-blend-mode: hard-light
+				position: absolute
+				z-index: 5
+
+
+
+
+// see gallery immediately
+@media all and (min-width: 879px)
+	body
+		nav
+			position: absolute
+			left: calc(50% - 273.6px / 2)
+			top: 40px
+			.fa-ellipsis-h
+				display: none
+			ul
+				display: inline
+				font-family: 'Roboto Mono'
+				font-size: 24px
+				color: $leaf
+				li
+					display: inline
+				span.a
+					display: none
+				a:hover
+					color: salmon
+		main
+				width: calc(100% - 120px)
+				height: calc(100% - 200px)
+				transform: translateY(200px)
+				margin: 0 60px
+				#mobile
+					display: none
+				#gallery
+					width: 100%
+					height: 100%
+					display: grid
+					grid-template-columns: repeat(auto-fit, minmax(320px,1fr))
+					grid-gap: 20px
+					.galleryImg
+						width: 100%
+						height: 100%
+						object-fit: cover
+						image-rendering: optimizespeed
+						position: relative
+						transition: transform 250ms
+						cursor: pointer
+						&:hover
+							transform: translateY(-2px)
+							box-shadow: 2px 2px 10px #ddd
+							transition: transform
+				#popup
+					position: fixed
+					top: 0
+					left: 0
+					right: 0
+					bottom: 0
+					background: white
+					transform: translateY(-200%)
+					transition: transform 250ms
+					display: flex
+					justify-content: center
+					#selectedImage
+						max-height: 100%
+
+
+
+
+
+// animation and stuff
 @keyframes enter-art
 	0%
 		width: 10vw
 	100%
 		width: 50vw
-
-@media all and (max-width: 700px)
-		nav
-			.links
-				// styling
-				width: 50%
-				height: 100%
-				background: $emerald
-				display: flex
-				flex-direction: column
-				justify-content: center
-				align-items: center
-				font-family: 'Share Tech Mono', monospace
-				font-size: 2em
-				a
-					color: $tomato
-					text-shadow: 2px 2px $vanilla
-					margin: 20px 0
-				// magic
-				position: fixed
-				transform: translateX(-100%)
-			i
-				// styling
-				color: #111
-				font-size: 2em
-				padding: 1em
-				// magic and more
-				position: fixed
-				&:active
-					transform: translateX(60vw)
-					transition: transform 250ms
-					color: $tomato
-					text-shadow: 2px 2px $vanilla
-					&+.links
-						transform: translateX(0)
-						transition: transform 250ms
-
-
-@media all and (min-width: 700px)
-	body
-		nav
-			position: absolute
-			display: flex
-			justify-content: space-between
-			padding: 10px 0
-			width: 100%
-			background: $eggwhite
-			color: $eggwhite
-			font-size: 2em
-			text-shadow: 2px 2px $universe
-			box-shadow: 1px 0 20px #28282808
-			.fa-map-signs
-				padding-left: 10em
-				&:hover
-					//text-shadow: 2px 2px $emerald
-					color: $vanilla
-			.links
-				padding-right: 10em
-				a
-					font-family: 'Share Tech Mono', monospace
-					&:hover
-						text-shadow: 2px 2px $universe
-						color: $vanilla
-
-		#mobile
-			display: none
-
-		.desktop
-			height: 100%
-			display: flex
-			align-items: center
-			justify-content: center
-			background: $emerald
-			#gallery
-				display: grid
-				grid-template-columns: repeat(auto-fit, minmax(200px,1fr))
-				justify-content: center
-
-				.galleryImg
-					object-fit: cover
-					image-rendering: optimizespeed
-					width: 100%
-					height: 100%
-					position: relative
-					transition: transform 250ms
-					cursor: pointer
-					&:hover
-						transform: translateY(-2px)
-						transition: transform
-			#popup
-				position: fixed
-				top: 0
-				bottom: 0
-				left: 0
-				right: 0
-				background-color: $eggwhite
-				display: flex
-				justify-content: center
-				align-items: center
-				transform: translateY(-100%)
-				transition: transform 250ms
-				padding: 50px
-				#selectedImage
-					max-height: 100%
-					border: 2em solid #222

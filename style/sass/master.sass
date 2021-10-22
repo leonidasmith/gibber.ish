@@ -1,117 +1,109 @@
-@import "https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Share+Tech+Mono&display=swap"
+$leaf: #8FAF6B
 
-
-// colors by shade //
-
-$eggwhite: #f4f1de
-$tomato: #e07a5f
-$universe: #3d405b
-$emerald: #81b29a
-$vanilla: #f2cc8f
-$forest: #387c6d
-
-// colors by usage //
-
-$background: #f4f1de
-$mainAccent: $forest
-$accentWeak: #000
-$accentStrong: #000
-$mainText: #000
-$moreText: #000
-$lessText: #000
-
-// other //
-$imgSize: 8em
-$layout-breakpoint-small: 1200px
-
-*
-	margin: 0
-
-body
+html, body
+	width: 100%
 	height: 100%
-	background: #222
-	color: $mainAccent
-	font-family: 'Open Sans'
-	@media (min-width: $layout-breakpoint-small)
-		height: 100vh
-		max-width: 100vw
-		display: grid
-		grid-template-columns: [salute] 3fr [present] 7fr
-		grid-template-rows: repeat(5, auto)
-		font-size: 1.2em
+	margin: 0
+	a
+		text-decoration: none
+		color: $leaf
+	li
+		list-style: none
+	ul
+		padding-left: 0
+
+
+@media all and (max-width: 879px)
+	body
+		background: url('../img/map-mobile.jpg')
+		background-size: cover
+		nav
+			position: absolute
+			top: 473px
+			left: 40px
+			ul
+				li
+					margin: 20px 10px
+				li > *
+					color: white
+					font-size: 72px
+				span.b
+					display: none
+		img
+			z-index: 10
+			position: absolute
+			top: 117px
+			left: calc(50% - 264px/2)
+			width: 224px
+			height: 224px
+			border: 20px solid white
+			border-radius: 50%
+		#line
+			z-index: 5
+			position: absolute
+			top: calc(117px + 224px/2)
+			height: 40px
+			background: white
+			width: 100%
 		h1
-			font-size: 2em
-		section#salute
-			grid-column: salute
-			grid-row: 1/3
-			& > h1
-				padding-bottom: .5em
-			& > a:first-of-type
-				padding-top: .3em
-				padding-left: 1em
-			& > a:last-of-type
-				padding-bottom: .5em
-				padding-left: 1em
-		section#present
-			grid-column: present
-			grid-row: 1/6
-			display: grid
-			grid-template-columns: repeat(3, minmax(0, 1fr))
-			grid-template-rows: repeat(3, minmax(0, 1fr))
-			grid-content: center
-			place-items: stretch
+			display: none
+		p
+			display: none
 
-			article#second
-				grid-row: 1/1
-				grid-column: 2/2
-				align-self: end
-				color: #333
-				font-size: .85em
 
-			article#fifth
-				grid-row: 2/2
-				grid-column: 2/2
-				background: #333
-				box-shadow: 10px 10px $vanilla
+@media all and (min-width: 879px)
+	body
+		nav
+			position: absolute
+			left: calc(50% - 273.6px / 2)
+			top: 40px
+			ul
+				display: inline
+				font-family: 'Roboto Mono'
+				font-size: 24px
+				color: $leaf
+				li
+					display: inline
+				span.a
+					display: none
+				a:hover
+					color: salmon
+		main
+			width: calc(100% - 120px)
+			height: calc(100% - 200px)
+			transform: translateY(200px)
+			margin: 0 60px
+			background: url('../img/map-desktop-saturated.jpg') center center
+			background-size: cover
+			display: flex
+			flex-direction: column
+			justify-content: start
+			align-items: center
+			img
+				z-index: 10
+				flex-shrink: 0
+				transform: translateY(-90px)
+				height: 300px
+				width: 300px
+				border: 40px solid white
+				border-radius: 50%
+			#line
+				z-index: 5
+				flex-shrink: 0
+				width: 100%
+				height: 60px
+				background: white
+				transform: translateY(-300px)
+			h1
+				font-family: 'Roboto Mono'
+				font-size: 96px
+				font-weight: 600
+				letter-spacing: 10px
 				color: white
-				p:first-child
-					text-align: center
-				&:hover
-					box-shadow: 10px 10px $tomato
-				p:nth-child(2)
-					padding: 2em
-					span
-						color: grey
-						font-style: italic
-
-
-section#present
-	display: none
-	background: $eggwhite
-
-section#salute
-	padding-top: 20vh
-	display: flex
-	flex-direction: column
-	justify-content: center
-	align-items: center
-	font-family: 'Share Tech Mono', monospace
-	color: #222
-	text-shadow: 4px 2px $vanilla
-	
-	& > img
-		image-rendering: optimizespeed
-		width: $imgSize
-		height: $imgSize
-		border-radius: 50%
-		margin: $imgSize / 8
-		border: solid .5em $vanilla
-
-
-	& > a
-		padding: 0 1.4em
-		color: $mainAccent
-		background: $mainAccent
-
-.gamebox
-	display: none
+				mix-blend-mode: overlay
+				transform: translateY(-200px)
+			p
+				color: white
+				font-size: 24px
+				font-family: 'Roboto Mono'
+				transform: translateY(-300px)
