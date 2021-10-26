@@ -1,10 +1,168 @@
-@import "https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Share+Tech+Mono&display=swap";
-* {
-  padding: 2rem; }
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+}
+html #counter, body #counter {
+  display: none;
+}
+html a, body a {
+  text-decoration: none;
+  color: #8FAF6B;
+}
+html li, body li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+html ul, body ul {
+  padding-left: 0;
+  margin: 0;
+}
+html nav input, body nav input {
+  display: none;
+}
+html p, html h1, body p, body h1 {
+  margin: 0;
+}
 
-body {
-  background: #222;
-  color: #f4f1de;
-  font-family: "Open Sans"; }
+@media all and (max-width: 879px) {
+  body nav {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+  }
+  body nav input {
+    display: none;
+  }
+  body nav label {
+    height: 0;
+  }
+  body nav label .fa-ellipsis-h {
+    z-index: 20;
+    font-size: 2.5em;
+    padding: 30px;
+    position: fixed;
+  }
+  body nav ul {
+    position: relative;
+    transform: translateX(-100%);
+    height: 100%;
+    width: 60%;
+    background: salmon;
+  }
+  body nav ul :first-child {
+    padding-top: 200px;
+  }
+  body nav ul li {
+    padding: 20px;
+  }
+  body nav ul li > * {
+    color: white;
+    font-size: 32px;
+  }
+  body nav ul span.b {
+    display: none;
+  }
+  body nav #target:checked + label > i {
+    transform: rotate(90deg);
+    transition: transform 250ms;
+  }
+  body nav #target:checked ~ ul {
+    transform: translateX(0);
+    transition: transform 250ms;
+  }
+  body nav #target:not(:checked) + label > i {
+    transform: rotate(0deg);
+    transition: transform 250ms;
+  }
+  body nav #target:not(:checked) ~ ul {
+    transform: translateX(-100%);
+    transition: transform 250ms;
+  }
+}
+@media all and (min-width: 879px) {
+  body nav {
+    position: absolute;
+    left: calc(50% - 136.8px);
+    top: 40px;
+  }
+  body nav input, body nav label {
+    display: none;
+  }
+  body nav ul {
+    display: inline;
+    font-family: "Roboto Mono";
+    font-size: 24px;
+    color: #8FAF6B;
+  }
+  body nav ul li {
+    display: inline;
+  }
+  body nav ul span.a {
+    display: none;
+  }
+  body nav ul a:hover {
+    color: salmon;
+  }
+  body main {
+    width: calc(100% - 120px);
+    height: calc(100% - 200px);
+    transform: translateY(200px);
+    margin: 0 60px;
+    background: url("../img/map-desktop-light.jpg");
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+  }
+  body main h1#title {
+    display: none;
+    height: 100%;
+    width: 50%;
+  }
+  body main section#article {
+    background: white;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-left: 60px;
+    font-family: "Roboto mono";
+    color: #535353;
+    padding: 60px;
+  }
+  body main section#article article h1 {
+    color: #8FAF6B;
+    font-size: 24px;
+    font-family: "Roboto Mono";
+    position: absolute;
+    margin: 10px;
+    top: -44px;
+    left: -10px;
+  }
+  body main img {
+    z-index: 10;
+    height: 100%;
+    margin-left: 100px;
+    position: fixed;
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  body main section#list {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  body main section#list article {
+    background: white;
+    padding: 10px 80px;
+    margin-left: 60px;
+    margin-top: 40px;
+    cursor: pointer;
+  }
+  body main section#list article:hover {
+    box-shadow: -5px 5px #8FAF6B;
+  }
+}
 
 /*# sourceMappingURL=doxa.css.map */

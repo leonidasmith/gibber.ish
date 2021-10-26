@@ -1,23 +1,153 @@
-@import "https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Share+Tech+Mono&display=swap"
 
 
-// colors by shade //
+$leaf: #8FAF6B
 
-$eggwhite: #f4f1de
-$tomato: #e07a5f
-$universe: #3d405b
-$emerald: #81b29a
-$vanilla: #f2cc8f
-$forest: #387c6d
+html, body
+	width: 100%
+	height: 100%
+	margin: 0
+	font-family: 'Roboto Mono', monospace
+	#counter
+		display: none
+	a
+		text-decoration: none
+		color: $leaf
+	li
+		list-style: none
+		margin: 0
+		padding: 0
+	ul
+		padding-left: 0
+		margin: 0
+	nav
+		input
+			display: none
+	p, h1
+		margin: 0
 
-// other //
-$imgSize: 8em
-$layout-breakpoint-small: 1200px
 
-*
-	padding: 2rem
 
-body
-	background: #222
-	color: $eggwhite
-	font-family: 'Open Sans'
+
+
+// see the animation before accessing the gallery
+@media all and (max-width: 879px)
+	body
+		nav
+			position: absolute
+			height: 100%
+			width: 100%
+			z-index: 20
+			input
+				display: none
+			label
+				height: 0
+				.fa-ellipsis-h
+					z-index: 20
+					font-size: 2.5em
+					padding: 30px
+					position: fixed
+			ul
+				position: relative
+				transform: translateX(-100%)
+				height: 100%
+				width: 60%
+				background: salmon
+				& :first-child
+					padding-top: 200px
+				li
+					padding: 20px
+				li > *
+					color: white
+					font-size: 32px
+				span.b
+					display: none
+			#target:checked
+				+ label > i
+					transform: rotate(90deg)
+					transition: transform 250ms
+				~ ul
+					transform: translateX(0)
+					transition: transform 250ms
+			#target:not(:checked)
+				+ label > i
+					transform: rotate(0deg)
+					transition: transform 250ms
+				~ ul
+					transform: translateX(-100%)
+					transition: transform 250ms
+
+
+
+// see gallery immediately
+@media all and (min-width: 879px)
+	body
+		nav
+			position: absolute
+			left: calc(50% - 273.6px / 2)
+			top: 40px
+			input, label
+				display: none
+			ul
+				display: inline
+				font-family: 'Roboto Mono'
+				font-size: 24px
+				color: $leaf
+				li
+					display: inline
+				span.a
+					display: none
+				a:hover
+					color: salmon
+		main
+			width: calc(100% - 120px)
+			height: calc(100% - 200px)
+			transform: translateY(200px)
+			margin: 0 60px
+			background: url('../img/map-desktop-light.jpg')
+			background-size: cover
+			display: grid
+			grid-template-columns: 50% 50%
+			grid-template-rows: 100%
+			h1#title
+				display: none
+				height: 100%
+				width: 50%
+			section
+				//display: none
+			section#article
+				background: white
+				grid-column: 1 / 2
+				grid-row: 1 / 2
+				margin-left: 60px
+				font-family: 'Roboto mono'
+				color: #535353
+				padding: 60px
+				article
+					h1
+						color: $leaf
+						font-size: 24px
+						font-family: 'Roboto Mono'
+						position: absolute
+						margin: 10px
+						top: -44px
+						left: -10px
+			img
+				z-index: 10
+				height: 100%
+				margin-left: 100px
+				position: fixed
+				grid-column: 2/3
+				grid-row: 1/2
+
+			section#list
+				grid-column: 2/3
+				grid-row: 1/2
+
+				article
+					background: white
+					padding: 10px 80px
+					margin-left: 60px
+					margin-top: 40px
+					cursor: pointer
+					&:hover
+						box-shadow: -5px 5px $leaf
