@@ -1,0 +1,122 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+}
+html #counter, body #counter {
+  display: none;
+}
+html a, body a {
+  text-decoration: none;
+  color: #8FAF6B;
+}
+html li, body li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+html ul, body ul {
+  padding-left: 0;
+  margin: 0;
+}
+html nav input, body nav input {
+  display: none;
+}
+html p, html h1, body p, body h1 {
+  margin: 0;
+}
+
+@media all and (max-width: 879px) {
+  body nav {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+  }
+  body nav input {
+    display: none;
+  }
+  body nav label {
+    height: 0;
+  }
+  body nav label .fa-ellipsis-h {
+    z-index: 20;
+    font-size: 2.5em;
+    padding: 30px;
+    position: fixed;
+  }
+  body nav ul {
+    position: relative;
+    transform: translateX(-100%);
+    height: 100%;
+    width: 60%;
+    background: salmon;
+  }
+  body nav ul :first-child {
+    padding-top: 200px;
+  }
+  body nav ul li {
+    padding: 20px;
+  }
+  body nav ul li > * {
+    color: white;
+    font-size: 32px;
+  }
+  body nav ul span.b {
+    display: none;
+  }
+  body nav #target:checked + label > i {
+    transform: rotate(90deg);
+    transition: transform 250ms;
+  }
+  body nav #target:checked ~ ul {
+    transform: translateX(0);
+    transition: transform 250ms;
+  }
+  body nav #target:not(:checked) + label > i {
+    transform: rotate(0deg);
+    transition: transform 250ms;
+  }
+  body nav #target:not(:checked) ~ ul {
+    transform: translateX(-100%);
+    transition: transform 250ms;
+  }
+}
+@media all and (min-width: 879px) {
+  body nav {
+    position: absolute;
+    left: calc(50% - 136.8px);
+    top: 40px;
+  }
+  body nav input, body nav label {
+    display: none;
+  }
+  body nav ul {
+    display: inline;
+    font-family: "Roboto Mono";
+    font-size: 24px;
+    color: #8FAF6B;
+  }
+  body nav ul li {
+    display: inline;
+  }
+  body nav ul span.a {
+    display: none;
+  }
+  body nav ul a:hover {
+    color: salmon;
+  }
+  body main {
+    width: calc(100% - 120px);
+    height: calc(100% - 200px);
+    transform: translateY(200px);
+    margin: 0 60px;
+    background: #EFDFC4;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+  }
+}
+
+/*# sourceMappingURL=cafe.css.map */
